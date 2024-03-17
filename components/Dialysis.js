@@ -19,13 +19,13 @@ const Dialysis = ({ navigation }) => {
   const [Group, setGroup] = useState("");
   const [Gender, setGender] = useState("");
   const [CVD, setCVD] = useState("");
-  const [PD, setPD] = useState("");
+  const [PulmonaryDisease, setPulmonaryDisease] = useState("");
   const [Diabetes, setDiabetes] = useState("");
-  const [IT, setIT] = useState("");
+  const [ImmunosuppressiveTherapy, setImmunosuppressiveTherapy] = useState("");
   const [SC, setSC] = useState("");
   const [UN, setUN] = useState("");
   const [eGFR, seteGFR] = useState("");
-  const [WBC, setWBC] = useState("");
+  const [WhiteBloodCells, setWhiteBloodCells] = useState("");
   const [Hemoglobin, setHemoglobin] = useState("");
   const [Platelet, setPlatelet] = useState("");
   const [Serum, setSerum] = useState("");
@@ -64,8 +64,8 @@ const Dialysis = ({ navigation }) => {
   const onChangeeGFRhandler = (egfr) => {
     seteGFR(egfr);
   };
-  const onChangeWBChandler = (wbc) => {
-    setWBC(wbc);
+  const onChangeWhiteBloodCellshandler = (whitebloodcells) => {
+    setWhiteBloodCells(whitebloodcells);
   };
   const onChangeHemoglobinhandler = (hemoglobin) => {
     setHemoglobin(hemoglobin);
@@ -93,13 +93,13 @@ const Dialysis = ({ navigation }) => {
       Age,
       Gender,
       CVD,
-      PD,
-      IT,
+      PulmonaryDisease,
+      ImmunosuppressiveTherapy,
       Diabetes,
       SC,
       UN,
       eGFR,
-      WBC,
+      WhiteBloodCells,
       Hemoglobin,
       Platelet,
       Serum,
@@ -111,7 +111,7 @@ const Dialysis = ({ navigation }) => {
     try {
       await // Replace http://127.0.0.1:8000/predict with your api online
       axios
-        .post(`http://127.0.0.1:8000/predict`, data, {
+        .post(`process.env.API_URL`, data, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -126,17 +126,17 @@ const Dialysis = ({ navigation }) => {
             setSC("");
             setUN("");
             seteGFR("");
-            setWBC("");
+            setWhiteBloodCells("");
             setHemoglobin("");
             setPlatelet("");
             setSerum("");
             setESR("");
             setCRP("");
             setSerumGlobulin("");
-            setIT("");
+            setImmunosuppressiveTherapy("");
             setDiabetes("");
             setCVD("");
-            setPD("");
+            setPulmonaryDisease("");
             navigation.navigate("Result", res.data.predictions[0]);
             setIsLoading(false);
           }
@@ -216,8 +216,8 @@ const Dialysis = ({ navigation }) => {
         </View>
         <View style={styles.input}>
           <Picker
-            selectedValue={PD}
-            onValueChange={(itemValue) => setPD(itemValue)}
+            selectedValue={PulmonaryDisease}
+            onValueChange={(itemValue) => setPulmonaryDisease(itemValue)}
             // onValueChange={handleSubjectChange}
             mode="dropdown"
             style={styles.dropdown}
@@ -242,8 +242,10 @@ const Dialysis = ({ navigation }) => {
         </View>
         <View style={styles.input}>
           <Picker
-            selectedValue={IT}
-            onValueChange={(itemValue) => setIT(itemValue)}
+            selectedValue={ImmunosuppressiveTherapy}
+            onValueChange={(itemValue) =>
+              setImmunosuppressiveTherapy(itemValue)
+            }
             // onValueChange={handleSubjectChange}
             mode="dropdown"
             style={styles.dropdown}
@@ -297,16 +299,16 @@ const Dialysis = ({ navigation }) => {
         />
         <TextInput
           style={styles.input}
-          name="WBC"
+          name="WhiteBloodCells"
           placeholder="White Blood Cells（10^9 /L） "
           selectionColor="#a9a9a9"
           autoCapitalize="none"
           // textDecorationLine="underline"
           underlineColorAndroid="transparent"
           color="black"
-          value={WBC}
+          value={WhiteBloodCells}
           keyboardType="numeric"
-          onChangeText={onChangeWBChandler}
+          onChangeText={onChangeWhiteBloodCellshandler}
         />
         <TextInput
           style={styles.input}

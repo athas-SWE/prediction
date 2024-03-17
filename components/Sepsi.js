@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 const Sepsi = (item) => {
-  console.log()
+  console.log();
   const [currentPassword, setCurrentPassword] = useState();
   const [newPassword, setNewPassword] = useState();
   const [repeatPassword, setRepeatPassword] = useState();
 
-  const handleSubmit = () => {
-
-  }
+  const handleSubmit = () => {};
 
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
         <Image
           style={styles.avatar}
-          source={{uri: 'https://www.bootdey.com/img/Content/avatar/avatar8.png'}}
+          source={{
+            uri: "https://www.bootdey.com/img/Content/avatar/avatar8.png",
+          }}
         />
       </View>
       <View style={styles.form}>
@@ -48,7 +55,6 @@ const Sepsi = (item) => {
           <Text style={styles.buttonText}>Change password</Text>
         </TouchableOpacity>
       </View>
-
     </View>
   );
 };
@@ -56,19 +62,19 @@ const Sepsi = (item) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor:'#fff',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
   },
   form: {
-    width: '80%',
+    width: "80%",
   },
   label: {
     marginTop: 20,
-    marginBottom:5
+    marginBottom: 5,
   },
   input: {
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,
@@ -76,21 +82,21 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    backgroundColor: '#1E90FF',
+    backgroundColor: "#1E90FF",
     borderRadius: 5,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    textAlign:'center',
+    textAlign: "center",
   },
   avatarContainer: {
     marginTop: 10,
-    alignItems: 'center',
+    alignItems: "center",
 
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,

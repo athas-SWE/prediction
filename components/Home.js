@@ -18,7 +18,7 @@ const Home = ({ navigation }) => {
 
   const [steps, setSteps] = useState([
     {
-      image: require("../assets/sep.jpg"),
+      image: require("C:UsersAthas ARApp_mobil_predicting_sepsisassets\newnot.webp"),
       title: "Condition Prediction",
       description:
         "This app was built to predict if patients \n are Sepsis Positive or Sepsis Negative.",
